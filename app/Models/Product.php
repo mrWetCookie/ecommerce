@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Product extends Model
+{
+    use HasFactory;
+    protected $fillable = ['name', 'slug', 'sku', 'category', 'description', 'price'];
+    public function carrito(){
+        return $this->belongsTo(Carrito::class, 'id_carrito');
+    }
+}
